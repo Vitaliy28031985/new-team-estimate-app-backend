@@ -1,0 +1,133 @@
+import { ProjectsService } from './projects.service';
+import { CreateProjectDto } from './projects-dtos/create.project.dto';
+import { Project } from 'src/mongo/schemas/project/project.schema';
+import { RequestWithUser } from 'src/interfaces/requestWithUser';
+import { Types } from 'mongoose';
+export declare class ProjectsController {
+    private readonly projectsService;
+    constructor(projectsService: ProjectsService);
+    getAll(req: RequestWithUser, page: string, limit: string): Promise<{
+        projects: {
+            _id: any;
+            title: any;
+            description: any;
+        }[];
+        total: number;
+    }>;
+    getById(projectId: string, req: RequestWithUser): Promise<(import("mongoose").Document<unknown, {}, Project> & Project & {
+        _id: Types.ObjectId;
+    } & {
+        __v?: number;
+    }) | {
+        _id: Types.ObjectId;
+        title: string;
+        description: string;
+        materialsTotal: number;
+        advancesTotal: number;
+        materials: import("../mongo/schemas/project/material.schema").Material[];
+        advances: import("../mongo/schemas/project/advance.schema").Advance[];
+        lowPrices: import("../mongo/schemas/price.schema").Price[];
+        lowEstimates: import("../mongo/schemas/project/estimate.schema").Estimate[];
+        lowTotal: number;
+        lowGeneral: number;
+        prices?: undefined;
+        estimates?: undefined;
+        total?: undefined;
+        general?: undefined;
+        discount?: undefined;
+        discountPercentage?: undefined;
+    } | {
+        _id: Types.ObjectId;
+        title: string;
+        description: string;
+        lowPrices: import("../mongo/schemas/price.schema").Price[];
+        lowEstimates: import("../mongo/schemas/project/estimate.schema").Estimate[];
+        lowTotal: number;
+        materialsTotal?: undefined;
+        advancesTotal?: undefined;
+        materials?: undefined;
+        advances?: undefined;
+        lowGeneral?: undefined;
+        prices?: undefined;
+        estimates?: undefined;
+        total?: undefined;
+        general?: undefined;
+        discount?: undefined;
+        discountPercentage?: undefined;
+    } | {
+        _id: Types.ObjectId;
+        title: string;
+        description: string;
+        materials: import("../mongo/schemas/project/material.schema").Material[];
+        advances: import("../mongo/schemas/project/advance.schema").Advance[];
+        prices: import("../mongo/schemas/price.schema").Price[];
+        estimates: import("../mongo/schemas/project/estimate.schema").Estimate[];
+        total: number;
+        materialsTotal: number;
+        advancesTotal: number;
+        general: number;
+        discount: number;
+        discountPercentage: number;
+        lowPrices?: undefined;
+        lowEstimates?: undefined;
+        lowTotal?: undefined;
+        lowGeneral?: undefined;
+    } | {
+        _id: Types.ObjectId;
+        title: string;
+        description: string;
+        prices: import("../mongo/schemas/price.schema").Price[];
+        estimates: import("../mongo/schemas/project/estimate.schema").Estimate[];
+        total: number;
+        materialsTotal?: undefined;
+        advancesTotal?: undefined;
+        materials?: undefined;
+        advances?: undefined;
+        lowPrices?: undefined;
+        lowEstimates?: undefined;
+        lowTotal?: undefined;
+        lowGeneral?: undefined;
+        general?: undefined;
+        discount?: undefined;
+        discountPercentage?: undefined;
+    } | {
+        _id: Types.ObjectId;
+        title: string;
+        description: string;
+        materials: import("../mongo/schemas/project/material.schema").Material[];
+        advances: import("../mongo/schemas/project/advance.schema").Advance[];
+        prices: import("../mongo/schemas/price.schema").Price[];
+        estimates: import("../mongo/schemas/project/estimate.schema").Estimate[];
+        lowEstimates: import("../mongo/schemas/project/estimate.schema").Estimate[];
+        lowPrices: import("../mongo/schemas/price.schema").Price[];
+        lowTotal: number;
+        lowGeneral: number;
+        total: number;
+        materialsTotal: number;
+        advancesTotal: number;
+        general: number;
+        discount: number;
+        discountPercentage: number;
+    } | {
+        _id: Types.ObjectId;
+        title: string;
+        description: string;
+        prices: import("../mongo/schemas/price.schema").Price[];
+        estimates: import("../mongo/schemas/project/estimate.schema").Estimate[];
+        lowEstimates: import("../mongo/schemas/project/estimate.schema").Estimate[];
+        lowPrices: import("../mongo/schemas/price.schema").Price[];
+        lowTotal: number;
+        total: number;
+        materialsTotal?: undefined;
+        advancesTotal?: undefined;
+        materials?: undefined;
+        advances?: undefined;
+        lowGeneral?: undefined;
+        general?: undefined;
+        discount?: undefined;
+        discountPercentage?: undefined;
+    }>;
+    create(projectDto: CreateProjectDto, req: RequestWithUser): Promise<Project>;
+    update(projectId: string, projectDto: CreateProjectDto, req: RequestWithUser): Promise<Project>;
+    remove(projectId: string, req: RequestWithUser): Promise<Project>;
+}

@@ -1,0 +1,22 @@
+export declare const MessageApp: {
+    DELETE_POSITION: string;
+    DELETE_ADVANCE: string;
+    DELETE_MATERIAL: string;
+    DELETE_PRICE: string;
+    UPDATE_AVATAR: string;
+    SEND_VERIFY_CODE: string;
+    UPDATE_PASSWORD: string;
+    ADD_ALLOW(email: string): string;
+    UPDATE_ALLOW(email: string): string;
+    DELETE_ALLOW(email: string): string;
+    DELETE_ESTIMATE(): string;
+    CREATE_POSITION(title: string): string;
+    UPDATE_POSITION(title: string): string;
+    ADD_ADVANCE(comment: string): string;
+    UPDATE_ADVANCE(comment: string): string;
+    CREATE_MATERIALS(title: string): string;
+    UPDATE_MATERIAL(title: string): string;
+    ADD_DISCOUNT(discount: number): string;
+    ADD_LOW_PROJECT(discount: number): string;
+    UPDATE_PROJECT_PRICE(title: string): string;
+};
