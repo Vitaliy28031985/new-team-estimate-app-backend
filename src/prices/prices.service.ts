@@ -95,11 +95,11 @@ export class PricesService {
     if (targetPrice.length === 0) {
       throw new NotFoundException(ErrorsApp.NOT_PRICE);
     }
-    await this.middlePricesService.updateMiddlePrice({
-      ...priceDto,
-      id: priceId,
-      owner: typedUser._id,
-    });
+    // await this.middlePricesService.updateMiddlePrice({
+    //   ...priceDto,
+    //   id: priceId,
+    //   owner: typedUser._id,
+    // });
 
     return await this.priceModel.findByIdAndUpdate(
       { owner: typedUser._id, _id: targetPrice[0]._id },
@@ -132,7 +132,7 @@ export class PricesService {
       throw new NotFoundException(ErrorsApp.NOT_PRICE);
     }
 
-    await this.middlePricesService.removeMiddlePrice(priceId);
+    // await this.middlePricesService.removeMiddlePrice(priceId);
 
     return this.priceModel.findOneAndDelete({
       owner: typedUser._id,
