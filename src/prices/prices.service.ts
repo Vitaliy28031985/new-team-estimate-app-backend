@@ -12,13 +12,13 @@ import { Price } from 'src/mongo/schemas/price.schema';
 import { PricesDto } from './price.dto';
 import { RequestWithUser } from 'src/interfaces/requestWithUser';
 import { ErrorsApp } from 'src/common/errors';
-import { MiddlePricesService } from 'src/middle-prices/middle.prices.service';
+// import { MiddlePricesService } from 'src/middle-prices/middle.prices.service';
 
 @Injectable()
 export class PricesService {
   constructor(
     @InjectModel(Price.name) private priceModel: Model<Price>,
-    private readonly middlePricesService: MiddlePricesService,
+    // private readonly middlePricesService: MiddlePricesService,
   ) {}
 
   async findAll(@Req() req: RequestWithUser): Promise<Price[]> {
@@ -63,11 +63,11 @@ export class PricesService {
       owner: typedUser._id,
     });
 
-    await this.middlePricesService.addMiddlePrice({
-      ...priceDto,
-      id: newPriceId,
-      owner: typedUser._id,
-    });
+    // await this.middlePricesService.addMiddlePrice({
+    //   ...priceDto,
+    //   id: newPriceId,
+    //   owner: typedUser._id,
+    // });
     return newPrice;
   }
 
