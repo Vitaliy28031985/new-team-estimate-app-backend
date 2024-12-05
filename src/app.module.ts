@@ -21,7 +21,7 @@ import { AuthRefreshMiddleware } from './middlewares/auth.refresh.middleware';
 import { ReviewsModule } from './reviews/reviews.module';
 import { LowProjectPriceModule } from './projects/low-project-price/low.project.price.module';
 import { UserModule } from './user/user.module';
-import { MiddlePricesModule } from './middle-prices/middle.prices.module';
+// import { MiddlePricesModule } from './middle-prices/middle.prices.module';
 config();
 
 @Module({
@@ -51,7 +51,7 @@ config();
     ReviewsModule,
     LowProjectPriceModule,
     UserModule,
-    MiddlePricesModule,
+    // MiddlePricesModule,
   ],
 })
 export class AppModule {
