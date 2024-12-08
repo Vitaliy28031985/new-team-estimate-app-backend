@@ -12,13 +12,13 @@ import { Price } from 'src/mongo/schemas/price.schema';
 import { PricesDto } from './price.dto';
 import { RequestWithUser } from 'src/interfaces/requestWithUser';
 import { ErrorsApp } from 'src/common/errors';
-// import { MiddlePricesService } from 'src/middle-prices/middle.prices.service';
+import { MiddlePricesService } from 'src/middle-prices/middle.prices.service';
 
 @Injectable()
 export class PricesService {
   constructor(
     @InjectModel(Price.name) private priceModel: Model<Price>,
-    // private readonly middlePricesService: MiddlePricesService,
+    private readonly middlePricesService: MiddlePricesService,
   ) {}
 
   async findAll(@Req() req: RequestWithUser): Promise<Price[]> {
@@ -63,11 +63,11 @@ export class PricesService {
       owner: typedUser._id,
     });
 
-    // await this.middlePricesService.addMiddlePrice({
-    //   ...priceDto,
-    //   id: newPriceId,
-    //   owner: typedUser._id,
-    // });
+    await this.middlePricesService.addMiddlePrice({
+      ...priceDto,
+      id: newPriceId,
+      owner: typedUser._id,
+    });
     return newPrice;
   }
 
@@ -95,11 +95,11 @@ export class PricesService {
     if (targetPrice.length === 0) {
       throw new NotFoundException(ErrorsApp.NOT_PRICE);
     }
-    // await this.middlePricesService.updateMiddlePrice({
-    //   ...priceDto,
-    //   id: priceId,
-    //   owner: typedUser._id,
-    // });
+    await this.middlePricesService.updateMiddlePrice({
+      ...priceDto,
+      id: priceId,
+      owner: typedUser._id,
+    });
 
     return await this.priceModel.findByIdAndUpdate(
       { owner: typedUser._id, _id: targetPrice[0]._id },
@@ -132,7 +132,7 @@ export class PricesService {
       throw new NotFoundException(ErrorsApp.NOT_PRICE);
     }
 
-    // await this.middlePricesService.removeMiddlePrice(priceId);
+    await this.middlePricesService.removeMiddlePrice(priceId);
 
     return this.priceModel.findOneAndDelete({
       owner: typedUser._id,
