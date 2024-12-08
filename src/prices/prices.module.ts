@@ -7,7 +7,7 @@ import {
   MiddlePrice,
   MiddlePriceSchema,
 } from 'src/mongo/schemas/middle-prices/middle.prices';
-// import { MiddlePricesService } from 'src/middle-prices/middle.prices.service';
+import { MiddlePricesService } from 'src/middle-prices/middle.prices.service';
 
 @Module({
   imports: [
@@ -17,7 +17,7 @@ import {
     ]),
   ],
   controllers: [PricesController],
-  providers: [PricesService],
+  providers: [PricesService, MiddlePricesService],
   // exports: [PricesService],
 })
 export class PricesModule {}
