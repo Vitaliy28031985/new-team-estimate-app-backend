@@ -24,6 +24,9 @@ let PricesController = class PricesController {
     constructor(pricesService) {
         this.pricesService = pricesService;
     }
+    async getAllMiddlePrice() {
+        return this.pricesService.getAll();
+    }
     async getAll(req) {
         return this.pricesService.findAll(req);
     }
@@ -46,6 +49,12 @@ let PricesController = class PricesController {
     }
 };
 exports.PricesController = PricesController;
+__decorate([
+    (0, common_1.Get)('middle'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], PricesController.prototype, "getAllMiddlePrice", null);
 __decorate([
     (0, common_1.Get)(),
     (0, common_1.UseGuards)(roleGuard_1.RoleGuard),

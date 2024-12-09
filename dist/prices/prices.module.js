@@ -13,7 +13,6 @@ const prices_controller_1 = require("./prices.controller");
 const mongoose_1 = require("@nestjs/mongoose");
 const price_schema_1 = require("../mongo/schemas/price.schema");
 const middle_prices_1 = require("../mongo/schemas/middle-prices/middle.prices");
-const middle_prices_service_1 = require("../middle-prices/middle.prices.service");
 let PricesModule = class PricesModule {
 };
 exports.PricesModule = PricesModule;
@@ -26,7 +25,7 @@ exports.PricesModule = PricesModule = __decorate([
             ]),
         ],
         controllers: [prices_controller_1.PricesController],
-        providers: [prices_service_1.PricesService, middle_prices_service_1.MiddlePricesService],
+        providers: [prices_service_1.PricesService],
     })
 ], PricesModule);
 //# sourceMappingURL=prices.module.js.map

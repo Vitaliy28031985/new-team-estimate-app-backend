@@ -30,7 +30,6 @@ const auth_refresh_middleware_1 = require("./middlewares/auth.refresh.middleware
 const reviews_module_1 = require("./reviews/reviews.module");
 const low_project_price_module_1 = require("./projects/low-project-price/low.project.price.module");
 const user_module_1 = require("./user/user.module");
-const middle_prices_module_1 = require("./middle-prices/middle.prices.module");
 (0, dotenv_1.config)();
 let AppModule = class AppModule {
     configure(consumer) {
@@ -81,7 +80,6 @@ exports.AppModule = AppModule = __decorate([
             reviews_module_1.ReviewsModule,
             low_project_price_module_1.LowProjectPriceModule,
             user_module_1.UserModule,
-            middle_prices_module_1.MiddlePricesModule,
         ],
     })
 ], AppModule);

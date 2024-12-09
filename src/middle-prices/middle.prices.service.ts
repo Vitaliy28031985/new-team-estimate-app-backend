@@ -11,9 +11,9 @@ export class MiddlePricesService {
     @InjectModel(MiddlePrice.name) private middlePriceModel: Model<MiddlePrice>,
   ) {}
 
-  // async getAll() {
-  //   return await this.middlePriceModel.find();
-  // }
+  async getAll() {
+    return await this.middlePriceModel.find();
+  }
 
   async addMiddlePrice(dto: PricesDto) {
     const middlePrices = await this.middlePriceModel.find({

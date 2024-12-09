@@ -25,6 +25,11 @@ import { ErrorsApp } from 'src/common/errors';
 export class PricesController {
   constructor(private readonly pricesService: PricesService) {}
 
+  @Get('middle')
+  async getAllMiddlePrice() {
+    return this.pricesService.getAll();
+  }
+
   @Get()
   @UseGuards(RoleGuard)
   async getAll(@Req() req: RequestWithUser) {
