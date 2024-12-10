@@ -48,6 +48,9 @@ let AuthMiddleware = class AuthMiddleware {
         this.secretKey = process.env.SECRET_KEY;
     }
     async use(req, res, next) {
+        if (req.originalUrl === "/prices/middle") {
+            return next();
+        }
         const authorization = req.headers.authorization || '';
         const [bearer, token] = authorization.split(' ');
         if (bearer !== 'Bearer') {

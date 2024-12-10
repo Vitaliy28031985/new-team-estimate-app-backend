@@ -18,6 +18,9 @@ export class AuthMiddleware implements NestMiddleware {
   constructor(@InjectModel(User.name) private userModel: Model<User>) {}
 
   async use(req: RequestWithUser, res: Response, next: NextFunction) {
+      if (req.originalUrl === "/prices/middle") {
+        return next();
+      }
     const authorization = req.headers.authorization || '';
     const [bearer, token] = authorization.split(' ');
 
